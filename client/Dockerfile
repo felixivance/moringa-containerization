@@ -1,11 +1,14 @@
 # Use official Node.js image as the base image
-FROM node:14-alpine
+FROM node:18-alpine
 
 # Set the working directory inside the container
 WORKDIR /app/client
 
 # Copy package.json and package-lock.json
 COPY ./package*.json ./
+
+# check node version
+RUN node -v
 
 # Install dependencies
 RUN npm install
