@@ -16,6 +16,8 @@ services:
       - "8000:8000"
     depends_on:
       - mongo
+    networks:
+      - moringa-network
 
   mongo:
     image: mongo
@@ -23,6 +25,12 @@ services:
       - "27017:27017"
     volumes:
       - mongodbdata:/data/db
+    networks:
+      - moringa-network
+
+networks:
+  moringa-network:
+    driver: bridge
 
 volumes:
   mongodbdata:
