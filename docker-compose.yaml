@@ -10,6 +10,9 @@ services:
       - backend
     environment:
       - REACT_APP_URL=http://backend:8000
+    image: felixivance/moringa-yolomy-client:v1.0.0
+    networks:
+      - moringa-yolomy-network
 
   backend:
     build:
@@ -20,6 +23,9 @@ services:
       - mongo
     environment:
       - MONGODB_URI=mongodb://mongo:27017/yolomy
+    image: felixivance/moringa-yolomy-backend:v1.0.0
+    networks:
+      - moringa-yolomy-network
 
   mongo:
     image: mongo
@@ -27,6 +33,12 @@ services:
       - "27017:27017"
     volumes:
       - mongodbdata:/data/db
+    networks:
+      - moringa-yolomy-network
 
 volumes:
   mongodbdata:
+
+networks:
+  moringa-yolomy-network:
+    driver: bridge
