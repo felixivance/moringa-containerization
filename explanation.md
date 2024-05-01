@@ -139,3 +139,9 @@ The following good practices can be used for Docker image tag naming standards:
 5. Use the date and time as a tag for images built at a specific date and time (e.g., `2022-01-01-12-00-00`)
 
 There is a screenshot of your deployed image on DockerHub, clearly showing the version of the image
+
+![DockerHub Image](https://raw.githubusercontent.com/felixivance/moringa-containerization/master/screenshots/dockerhub.png)
+
+There is a screenshot of your running containers on your local machine
+
+![Running Containers](https://raw.githubusercontent.com/felixivance/moringa-containerization/master/screenshots/local-images.png)
