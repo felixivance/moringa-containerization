@@ -1,0 +1,7 @@
+---
+# tasks file for clone-repository
+- name: Clone frontend code from Github
+  git: 
+    repo: "{{ git_repo_url }}"
+    dest: "{{ project_dir }}"
+    version: HEAD

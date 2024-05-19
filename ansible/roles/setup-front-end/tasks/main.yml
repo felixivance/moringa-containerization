@@ -1,0 +1,14 @@
+---
+# tasks file for setup-front-end
+- name: Build and run frontend container
+  docker_container:
+    name: client
+    image: "{{ docker_client_image }}"
+    state: started
+    restart_policy: always 
+    ports:
+      - "3000:3000"
+    env:
+      REACT_APP_URL: "{{ react_app_url }}"
+    links:
+     - backend
