@@ -1,0 +1,8 @@
+---
+# tasks file for update-directory-ownership
+ - name: Change ownership of project directory
+   file:
+      path: "{{ project_dir }}"
+      owner: vagrant
+      group: vagrant
+      recurse: yes
