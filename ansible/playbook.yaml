@@ -7,6 +7,8 @@
     - update-server
     - setup-docker
     - clone-repository
-    - setup-mongo-db
-    - setup-backend
-    - setup-front-end
+    - update-directory-ownership
+    - run-docker-compose
+    # - setup-mongo-db
+    # - setup-backend
+    # - setup-front-end

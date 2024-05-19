@@ -1,0 +1,7 @@
+---
+# tasks file for run-docker-compose
+- name: Run Docker Compose
+  command: docker-compose up -d
+  args:
+    chdir: "{{ project_dir }}"
+  tags: compose
