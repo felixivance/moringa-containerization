@@ -1,0 +1,22 @@
+---
+# tasks file for setup-docker
+- name: Setup Docker
+  block:
+    - name: Install Docker
+      apt: 
+        name: docker.io
+        state: present
+        update_cache: yes
+
+    - name: Install Docker compose
+      apt:
+        name: docker-compose
+        state: present
+    
+    - name: Add vagrant user to docker group
+      user:
+        name: vagrant
+        groups: docker
+        append: yes
+
+      tags: setup_docker

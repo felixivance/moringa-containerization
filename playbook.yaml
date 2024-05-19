@@ -3,3 +3,4 @@
   roles:
     - test-connectivity
     - update-server
+    - setup-docker
