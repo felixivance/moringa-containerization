@@ -1,4 +1,21 @@
-- hosts: all
+- hosts: localhost
+  tasks:
+    - name: run terraform
+      command: terraform apply -auto-approve
+      args:
+        chdir: /ansible/stage_two
+
+    - name: Get terraform output
+      command: terraform output -json
+      args:
+        chdir: /ansible/stage_two
+      register: terraform_output
+
+    - name: set fact for app server IP
+      set_fact:
+        app_server_ip: "{{ terraform_output.app_server_ip.value }}"
+
+- hosts: "{{ app_server_ip }}"
   become: true
   vars_files:
     - vars/main.yml
