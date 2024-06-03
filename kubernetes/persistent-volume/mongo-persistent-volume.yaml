@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: mongo-persistent-volume
+spec:
+  capacity:
+    storage: 2Gi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Recycle # Recycle this means: recycle the persistent volume
+  storageClassName: slow # Storage class name this means: set the storage class name to slow
+  local:
+    path: /data/mongo
