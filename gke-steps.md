@@ -52,8 +52,20 @@ Steps to hosting the application to GKE
     kubectl config set-context --current --namespace=moringa-yolomy-namespace
 ```
 
-9. Apply the Kubernetes configuration files
+9. Apply the Kubernetes deployment configuration files
 
 ```bash
     kubectl apply -f kubernetes/deployments/
+```
+
+10. Apply the kubernetes services files
+
+```bash
+    kubectl apply -f kubernetes/services/
+```
+
+11. Apply the kubernetes stateful set files
+
+```bash
+    kubectl apply -f kubernetes/stateful-sets/
 ```
