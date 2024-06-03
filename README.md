@@ -1,6 +1,6 @@
 ## Updated: 03 June 2024
 
-# HOW TO SETUP LOCALLY, CONFIGURE CONTAINERS, DEPLOY TO GKE
+# How to setup locally, Configure Containers, Deploy to GKE
 
 # Requirements
 
