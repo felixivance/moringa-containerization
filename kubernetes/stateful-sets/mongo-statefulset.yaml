@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: StatefulSet # Kind of resource this means: create a StatefulSet which is a set of pods with unique identities
+metadata:
+  name: mongo-statefulset # Name of the StatefulSet
+spec:
+  selector:
+    matchLabels:
+      app: mongo # Label to match
+  serviceName: "mongo" # Service name ie mongo
+  replicas: 2 # Number of pods to run
+  template:
+    metadata:
+      labels:
+        app: mongo # Label to apply
+    spec:
+      containers:
+      - name: mongo-container # Name of the container
+        image: mongo
+        ports:
+        - containerPort: 27017 # Port to expose
+        volumeMounts:
+        - name: mongo-persistent-storage
+          mountPath: /data/db
+  volumeClaimTemplates: # Volume claim templates this means: create a volume claim template ie a template for creating a persistent volume claim which is a request for storage by a pod
+  - metadata: # Metadata this means: give the volume claim template a name
+      name: mongodbdata # Name of the volume claim template
+    spec:
+      accessModes: ["ReadWriteOnce"] # Access modes this means: set the access mode to ReadWriteOnce which means the volume can be mounted as read-write by a single node
+      resources: # Resources this means: set the resource limits
+        requests:
+          storage: 1Gi # Storage this means: set the storage request to 1Gi ie 1 Gigabyte
