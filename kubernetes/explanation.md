@@ -36,7 +36,11 @@ Deployment of the application on google Kubernetes cluster.
 
 ## StatefulSet
 
-- **mongo-statefulset.yaml**: Defines a StatefulSet resource for MongoDB to manage the deployment and scaling of MongoDB pods. It includes volumeClaimTemplates to ensure persistent storage for each MongoDB pod.
+- **/stateful-sets/mongo-statefulset.yaml**: Defines a StatefulSet resource for MongoDB to manage the deployment and scaling of MongoDB pods. It includes volumeClaimTemplates to ensure persistent storage for each MongoDB pod.
+
+## Policies
+
+- **/policies/network-policies.yaml**: This network policy allows incoming traffic from any pod with the label app: backend to any pod with the label app: client on port 8000.
 
 ## Accessing the Application
 
