@@ -3,7 +3,12 @@ kind: Deployment
 metadata:
   name: backend # Name of the deployment
 spec:
-  replicas: 2 # Number of pods to run
+  replicas: 1 # Number of pods to run
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
   selector:
     matchLabels:
       app: backend # Label to match
@@ -14,13 +19,18 @@ spec:
     spec:
       containers:
       - name: backend # Name of the container
-        image: felixivance/moringa-yolomy-backend:v1.0.0 # Image to use
-        resources:
-          limits:
-            memory: "128Mi"
-            cpu: "500m"
+        image: felixivance/moringa-yolomy-backend:v1.0.1 # Image to use
+        imagePullPolicy: Always # Always pull the image
         ports:
         - containerPort: 8000 # Port to expose
+        resources:
+          requests:
+            memory: "128Mi" # Memory to use in this case 128Mi (128 Megabytes)
+            cpu: "250m" # CPU to use in this case 250m (250 milliCPU)
+          limits:
+            memory: "256Mi" # Memory to limit in this case 256Mi (256 Megabytes)
+            cpu: "500m" # CPU to limit in this case 500m (500 milliCPU)
+       
         env:
             - name: MONGODB_URI
               value: "mongodb://mongo-0.mongo:27017,yolomy"
