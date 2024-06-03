@@ -14,7 +14,7 @@ spec:
     spec: # Pod specifications means: create a pod with the following specifications
       containers: # Containers this means: run the following containers
       - name: client # Name of the container
-        image: felixivance/moringa-yolomy-client:v1.0.2 # Image to use means: use the following image
+        image: felixivance/moringa-yolomy-client:v1.0.3 # Image to use means: use the following image
         imagePullPolicy: Always # Always pull the image
         resources: # Resources this means: set the resource limits
           requests:
@@ -26,5 +26,7 @@ spec:
         ports:
         - containerPort: 3000
         env:
-          - name: REACT_APP_URL
-            value: "http://backend:8000"
+          - name: REACT_APP_URL # Environment variable this means: set the environment variable REACT_APP_URL
+            value: http://backend-service:8000
+          - name: NODE_ENV # Environment variable this means: set the environment variable NODE_ENV
+            value: production
