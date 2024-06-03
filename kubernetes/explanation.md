@@ -1,6 +1,6 @@
 # Kubernetes Deployment
 
-we deploy the YOLO web application on google Kubernetes cluster.
+Deployment of the application on google Kubernetes cluster.
 
 ## Breakdown of Deployment Steps
 
