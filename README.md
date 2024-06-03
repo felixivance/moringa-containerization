@@ -126,3 +126,21 @@ Steps to hosting the application to GKE
 ```bash
     kubectl apply -f kubernetes/stateful-sets/
 ```
+
+12. Apply the persistent volume and persistent volume claim files
+
+```bash
+    kubectl apply -f kubernetes/persistent-volumes/
+```
+
+13. Access the application
+
+```bash
+    kubectl get services
+```
+
+- Copy the external IP address of the client service and paste it in your browser
+
+in this case, the client service is exposed on port 80
+
+The client application is hosted on: [http://34.73.250.153/](http://34.73.250.153/)
