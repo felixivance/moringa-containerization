@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend # Name of the deployment
+spec:
+  replicas: 2 # Number of pods to run
+  selector:
+    matchLabels:
+      app: backend # Label to match
+  template:
+    metadata:
+      labels:
+        app: backend # Label to apply
+    spec:
+      containers:
+      - name: backend # Name of the container
+        image: felixivance/moringa-yolomy-backend:v1.0.0 # Image to use
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8000 # Port to expose
