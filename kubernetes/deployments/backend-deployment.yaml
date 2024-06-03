@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: backend # Name of the deployment
 spec:
-  replicas: 1 # Number of pods to run
+  replicas: 2 # Number of pods to run
   strategy:
     type: RollingUpdate
     rollingUpdate:
@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
       - name: backend # Name of the container
-        image: felixivance/moringa-yolomy-backend:v1.0.1 # Image to use
+        image: felixivance/moringa-yolomy-backend:v1.0.2 # Image to use
         imagePullPolicy: Always # Always pull the image
         ports:
         - containerPort: 8000 # Port to expose

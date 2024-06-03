@@ -145,3 +145,11 @@ There is a screenshot of your deployed image on DockerHub, clearly showing the v
 There is a screenshot of your running containers on your local machine
 
 ![Running Containers](https://raw.githubusercontent.com/felixivance/moringa-containerization/master/screenshots/local-images.png)
+
+Update Mon 3rd June 2024
+
+# building image with Mac M1/Apple Silicon Chip
+
+you have to specify the platform
+
+docker build --platform linux/amd64 -t felixivance/moringa-yolomy-client:v1.0.2 .

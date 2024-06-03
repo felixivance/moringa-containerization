@@ -3,7 +3,7 @@ kind: Deployment # Kind of resource
 metadata:
   name: client # Name of the deployment
 spec:
-  replicas: 1 # Number of pods to run
+  replicas: 2 # Number of pods to run
   selector: # Label selector
     matchLabels: # Match labels
       app: client # Label to match
@@ -14,7 +14,7 @@ spec:
     spec: # Pod specifications means: create a pod with the following specifications
       containers: # Containers this means: run the following containers
       - name: client # Name of the container
-        image: felixivance/moringa-yolomy-client:v1.0.0 # Image to use means: use the following image
+        image: felixivance/moringa-yolomy-client:v1.0.2 # Image to use means: use the following image
         imagePullPolicy: Always # Always pull the image
         resources: # Resources this means: set the resource limits
           requests:
