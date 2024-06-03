@@ -21,3 +21,6 @@ spec:
             cpu: "500m"
         ports:
         - containerPort: 8000 # Port to expose
+      env:
+          - name: MONGODB_URI
+            value: mongodb://mongo-0.mongo:27017,yolomy
