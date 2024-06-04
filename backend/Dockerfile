@@ -1,5 +1,5 @@
 # Use official Node.js image as the base image
-FROM node:14-alpine
+FROM --platform=arm64 node:14-alpine
 
 # Set the working directory inside the container
 WORKDIR /app/backend

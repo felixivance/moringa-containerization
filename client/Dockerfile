@@ -1,5 +1,5 @@
 # Stage 1: Build the application
-FROM node:16-alpine as build
+FROM --platform=arm64 node:16-alpine as build
 
 # Set the working directory inside the container
 WORKDIR /app/client
@@ -17,7 +17,7 @@ COPY ./ .
 RUN npm run build
 
 # Stage 2: Create the production image
-FROM node:16-alpine
+FROM --platform=arm64 node:16-alpine
 
 # Set the working directory inside the container
 WORKDIR /app/client
